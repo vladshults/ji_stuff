@@ -6,7 +6,6 @@ def summator(a, b):
 
 
 def main():
-
     """
     >>> x = summator(2, 3)
     >>> print(x)
