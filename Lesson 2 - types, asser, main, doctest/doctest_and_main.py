@@ -11,7 +11,7 @@ def main():
     >>> print(x)
     5
     >>> assert x == 5
-   """
+    """
 
 
 if __name__ == "__main__":
