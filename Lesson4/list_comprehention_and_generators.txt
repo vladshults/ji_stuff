@@ -1,0 +1,13 @@
+list and dict comprehension
+
+newlist = [expression for item in iterable (if condition)]
+
+ex: l2 = [x for x in l1]
+
+ex: d1 = {num: num**2 for num in range(1, 11)}
+
+ex: d2 = {k: v for k, v in [("one", 1), ("two", 2), ("three", 3)]}
+
+ex: [x if x>=0 else 0 for x in range(-1, 3)]
+
+ex: g1 = (x if x>=0 else 0 for x in range(-1, 3))
