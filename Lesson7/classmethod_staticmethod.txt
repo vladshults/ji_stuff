@@ -14,20 +14,20 @@
 Выглядеть будет примерно так:
 
 class User:
-  def __init__(self, login, email):
-    self.login = login
-    self.email = email
+    def __init__(self, login, email):
+        self.login = login
+        self.email = email
 
-  @classmethod
-  def get_login_email(cls, user_data):
-    return cls(user_data[1], user_data[3])
+    @classmethod
+    def get_login_email(cls, user_data):
+        return cls(user_data[1], user_data[3])
 
 
 if __name__ == "__main__":
-  user_data = ("+79812365489", "wasya_admin", "Moscow region", "superwasya@megacompany.com")
-  # тут мы видим, что нужные поля находятся на втором и четвертом месте, это индексы кортежа 1 и 3 (счёт с нуля)
-  user = User.get_login_email(user_data)
-  print(user.login, user.email)
+    user_data = ("+79812365489", "wasya_admin", "Moscow region", "superwasya@megacompany.com")
+    # тут мы видим, что нужные поля находятся на втором и четвертом месте, это индексы кортежа 1 и 3 (счёт с нуля)
+    user = User.get_login_email(user_data)
+    print(user.login, user.email)
 
 
 Обратите внимание, что синтаксис вызова класса user = User, то есть мы зовем не экземпляр, а сам класс, экземпляр породится в get_login_email(user_data), когда мы вернем проинициализированный cls.
@@ -42,19 +42,45 @@ if __name__ == "__main__":
 
 class Calc:
 
-  @staticmethod
-  def multiplier(a, b):
-    return a * b
+    @staticmethod
+    def multiplier(a, b):
+        return a * b
 
-  @staticmethod
-  def summator(a, b):
-    return a + b
+    @staticmethod
+    def summator(a, b):
+        return a + b
 
 
 if __name__ == "__main__":
-  print(Calc.multiplier(3, 2))
-  print(Calc.summator(3, 2))
+    print(Calc.multiplier(3, 2))
+    print(Calc.summator(3, 2))
 
 
+
+@property - это специальное поле класса, в котором можно контролировать данные при задании значения. Имеет методы __get__, __set__, __delete__ . Обладающие такими свойствами поля еще называют дескрипторами.
+
+Пример использования:
+
+class Celsius:
+    def __init__(self, temperature=0):
+        self.temperature = temperature
+
+    def to_fahrenheit(self):
+        return (self.temperature * 1.8) + 32
+
+    @property
+    def temperature(self):
+        print("Getting value...")
+        return self._temperature
+
+    @temperature.setter
+    def temperature(self, value):
+        print("Setting value...")
+        if value < -273.15:
+            raise ValueError("Temperature below -273 is not possible")
+        self._temperature = value
+
+
+Обсуждать делитер не имеет большого смысла, так как он безвозвратно удаляет поле в данном экземпляре класса и к нему нельзя будет больше обратиться. Альтернатива - задать полю значение None через сеттер, это будет сигнал, что поле неинициализировано.
 
 
