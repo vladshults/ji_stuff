@@ -31,7 +31,7 @@ def my_second_decorator(func):
 
 if __name__ == "__main__":
     
-  @my_first_decorator
+    @my_first_decorator
     def summator(a, b):
         return a + b
     
