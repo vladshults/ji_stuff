@@ -6,6 +6,8 @@ def write_to_file(fl, logstring):
         f = open(fl, '+a')
     except OSError:
         print("Some problems with file...")
+        # если тут не вышло, надо выходить
+        return
     
     f.write(logstring)
     f.close()
