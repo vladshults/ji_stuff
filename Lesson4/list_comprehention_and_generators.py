@@ -6,7 +6,7 @@ def reflection(d):
 
 
 def test_simple_negative():
-    assert reflection({"one": 1, "two": 2}) != {1: "on", 2: "two"}
+    assert reflection({"one": 1, "two": 2}) == {1: "on", 2: "two"}
 
 
 def test_simple_positive():
