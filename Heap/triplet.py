@@ -10,7 +10,6 @@ for idx in range(1, len(l)-1):
     else:
         d[f] += 1
 
-sorted_triplets = sorted(d.items(), key=lambda item: item[1])
+sorted_triplets = sorted(d.items(), key=lambda item: item[1], reverse=True)
 
-print(sorted_triplets[-1][0])
-
+print(sorted_triplets[0])
