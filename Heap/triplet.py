@@ -1,6 +1,6 @@
 s = "abc bca abb bba bba bba bba abb abc cde abc bca abb"
 
-l = s.split(" ")
+l = s.split()
 d = {}
 
 for idx in range(1, len(l)-1):
